@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
 
 void main() => runApp(
   MaterialApp(
@@ -20,14 +22,16 @@ class _HomeState extends State<Home> {
       body: Column(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height/3,
             width: MediaQuery.of(context).size.width,
             color: Colors.green,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Placeholder(
-                  fallbackHeight: 100,
-                ),
+                // Placeholder(
+                //   fallbackHeight: 100,
+                // ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 10.0),
                   child: Text(
@@ -60,6 +64,36 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.thermometerHalf),
+                    title: Text("Temprature"),
+                    trailing: Text("24\u00B0"),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.cloud),
+                    title: Text("Weather"),
+                    trailing: Text("24\u00B0"),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.sun),
+                    title: Text("Humidity"),
+                    trailing: Text("24\u00B0"),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.wind),
+                    title: Text("Wind Speed"),
+                    trailing: Text("12"),
+                  )
+                ],
+              ),
+              
+            )
           )
         ],
       ),
